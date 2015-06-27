@@ -1,0 +1,2 @@
+# dianfig
+My configuration
