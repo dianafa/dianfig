@@ -8,6 +8,7 @@ git config --global alias.co checkout
 git config --global alias.p-r 'pull --rebase'
 git config --global alias.p-ro '!b=$(git rev-parse --abbrev-ref HEAD);git pull --rebase origin "$b"'
 git config --global alias.shipit '!b=$(git rev-parse --abbrev-ref HEAD);git push origin "$b"'
+git config --global alias.yolo 'shipit --force'
 
 #colorful terminal
 cat > .bash_profile << EOF1
