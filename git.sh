@@ -1,20 +1,25 @@
-#!/bin/bash
-
+[alias]
+    st = status
+    cam = commit -am
+    uncam = reset --soft HEAD~1
+    cane = commit --amend --no-edit
+    br = branch
+    co = checkout
+    p-r = pull --rebase
+    df = diff
+    lg = log -p
+    who = shortlog -s --
+    commit-a = "!f() { x=$(git current-branch)\" \"$1;git commit -m \"$x\"; }; f"
+    current-branch = "!git branch | grep -e '^*' | cut -d' ' -f 2"
+    task-id = "!git current-branch | grep -o -P '([A-Z]+\\-[0-9]+)'"
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    c = "!f() { x=$(git current-branch)\" \"$1;git commit -m \"$x\"; }; f"
+    p-ro = "!git pull --rebase origin $(git branch-name)"
+    shipit = "!git push origin $(git branch-name)"
+    yolo = "!git push origin $(git branch-name) --force"
+    clean-repo = "!git stash-all && git reset --hard && git clean -fd && git checkout dev && git pull"
+    stash-all = "!git add . && git stash"
+    delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    
 #git
-git config --global alias.st status
-git config --global alias.uncam 'reset --soft HEAD~1'
-git config --global alias.cam 'commit -am'
-git config --global alias.co checkout
-git config --global alias.c '!b=$(git rev-parse --abbrev-ref HEAD);git commit -am "$b" -m'
-git config --global alias.p-r 'pull --rebase'
-git config --global alias.p-ro '!b=$(git rev-parse --abbrev-ref HEAD);git pull --rebase origin "$b"'
-git config --global alias.shipit '!b=$(git rev-parse --abbrev-ref HEAD);git push origin "$b"'
-git config --global alias.yolo '!b=$(git rev-parse --abbrev-ref HEAD);git push origin "$b" --force'
-
-#colorful terminal
-cat > .bash_profile << EOF1
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-export PS1="\[\033[1;35m\]\u ♡ \h\ \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-EOF1
+#git config --global alias.c '!b=$(git rev-parse --abbrev-ref HEAD);git commit -am "$b" -m'
