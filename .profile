@@ -32,4 +32,7 @@ parse_git_branch() {
 export PS1="\[\033[1;35m\]\u ♡ \h\ \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 EOF1
 
+# curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
+# source ~/.bash_git
+
 alias xx='ssh diana@dev-diana'
