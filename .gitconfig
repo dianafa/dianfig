@@ -1,3 +1,5 @@
+# to find this file: git config --list --show-origin
+
 [alias]
     st = status
     cam = commit -am
