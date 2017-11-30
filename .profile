@@ -35,4 +35,4 @@ EOF1
 # curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
 # source ~/.bash_git
 
-alias xx='ssh diana@dev-diana'
+alias python='python3'
