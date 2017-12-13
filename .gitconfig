@@ -22,6 +22,3 @@
     clean-repo = "!git stash-all && git reset --hard && git clean -fd && git checkout dev && git pull"
     stash-all = "!git add . && git stash"
     delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
-    
-#git
-#git config --global alias.c '!b=$(git rev-parse --abbrev-ref HEAD);git commit -am "$b" -m'
