@@ -36,3 +36,5 @@ EOF1
 # source ~/.bash_git
 
 alias python='python3'
+
+# source ~/.bash_profile
