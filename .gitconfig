@@ -15,7 +15,7 @@
     current-branch = "!git branch | grep -e '^*' | cut -d' ' -f 2"
     task-id = "!git current-branch | grep -o -P '([A-Z]+\\-[0-9]+)'"
     branch-name = "!git rev-parse --abbrev-ref HEAD"
-    c = "!f() { x=$(git current-branch)\" \"$1;git commit -m \"$x\"; }; f"
+    c = "!f() { x=\"[\"$(git current-branch)\"] \"$1;git commit -m \"$x\"; }; f"
     p-ro = "!git pull --rebase origin $(git branch-name)"
     shipit = "!git push origin $(git branch-name)"
     yolo = "!git push origin $(git branch-name) --force"
